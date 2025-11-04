@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard </title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Poppins:400,700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f7f8f9;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 250px;
+      background-color: #2a2a2a;
+      color: #fff;
+      padding-top: 30px;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: #e81d42;
+      margin-bottom: 30px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      padding: 15px 25px;
+      border-bottom: 1px solid #444;
+      cursor: pointer;
+    }
+
+    .sidebar ul li a {
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .sidebar ul li:hover a,
+    .sidebar ul li.active a {
+      color: #e81d42;
+    }
+
+    /* Main */
+    .main-content {
+      margin-left: 250px;
+      padding: 40px;
+      transition: 0.3s;
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .dashboard-header h1 {
+      font-size: 26px;
+      font-weight: bold;
+      color: #2a2a2a;
+    }
+
+    .logout-btn {
+      background-color: #e81d42;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-transform: uppercase;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .logout-btn:hover {
+      background-color: #2a2a2a;
+    }
+
+    /* Section cards */
+    .section {
+      display: none;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .section.active {
+      display: block;
+      animation: fadeIn 0.5s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Profile section */
+    .profile-info input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .save-btn {
+      background-color: #e81d42;
+      color: #fff;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .save-btn:hover {
+      background-color: #2a2a2a;
+    }
+
+    /* Messages */
+    .message-box {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: #fafafa;
+      margin-bottom: 15px;
+    }
+
+    .message-box h4 {
+      margin-bottom: 8px;
+      color: #e81d42;
+    }
+
+    /* Settings */
+    .toggle {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .toggle label {
+      flex: 1;
+      font-size: 16px;
+    }
+
+    .toggle input {
+      width: 18px;
+      height: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+      .main-content {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Stackly</h2>
+    <ul>
+      <li class="active"><a href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+      <li><a href="#" onclick="showSection('profile')">My Profile</a></li>
+      <li><a href="#" onclick="showSection('messages')">Messages</a></li>
+      <li><a href="#" onclick="showSection('settings')">Settings</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="dashboard-header">
+      <h1>Welcome, User 👋</h1>
+      <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div class="section active" id="dashboard">
+      <h2>Dashboard Overview</h2>
+      <p>Here’s a quick overview of your activity.</p>
+      <div class="card-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div class="dashboard-card">
+          <h3>Orders</h3>
+          <p>3 Pending Orders</p>
+        </div>
+        <div class="dashboard-card">
+          <h3>Messages</h3>
+          <p>2 New Messages</p>
+        </div>
+        <div class="dashboard-card">
+          <h3>Settings</h3>
+          <p>Profile updated recently</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="section" id="profile">
+      <h2>My Profile</h2>
+      <div class="profile-info">
+        <input type="text" placeholder="Full Name" value="John Doe">
+        <input type="email" placeholder="Email" value="john@example.com">
+        <input type="text" placeholder="Phone" value="+91 9876543210">
+        <input type="password" placeholder="Change Password">
+        <button class="save-btn">Save Changes</button>
+      </div>
+    </div>
+
+    <!-- Messages Section -->
+    <div class="section" id="messages">
+      <h2>Messages</h2>
+      <div class="message-box">
+        <h4>Admin</h4>
+        <p>Welcome to your dashboard! Let us know if you need help.</p>
+      </div>
+      <div class="message-box">
+        <h4>Support</h4>
+        <p>Your last request has been resolved. Thank you!</p>
+      </div>
+      <div class="message-box">
+        <h4>Offers</h4>
+        <p>Exclusive deal: 20% off on new lifestyle products.</p>
+      </div>
+    </div>
+
+    <!-- Settings Section -->
+    <div class="section" id="settings">
+      <h2>Settings</h2>
+      <div class="toggle">
+        <label>Enable Notifications</label>
+        <input type="checkbox" checked>
+      </div>
+      <div class="toggle">
+        <label>Dark Mode</label>
+        <input type="checkbox">
+      </div>
+      <div class="toggle">
+        <label>Show Email in Profile</label>
+        <input type="checkbox" checked>
+      </div>
+      <button class="save-btn">Save Preferences</button>
+    </div>
+  </div>
+
+  <script>
+    // Sidebar section switching
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+
+      document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active'));
+      event.target.closest('li').classList.add('active');
+    }
+
+    // Logout redirect
+    document.getElementById('logoutBtn').addEventListener('click', function() {
+      alert('You have been logged out.');
+      window.location.href = 'login.html';
+    });
+  </script>
+
+</body>
+</html>

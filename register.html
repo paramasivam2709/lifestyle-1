@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Register | Nimo</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Poppins:400,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f7f8f9;
+      font-family: 'Poppins', sans-serif;
+    }
+    .auth-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .auth-box {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+    }
+    .auth-box h2 {
+      color: #2a2a2a;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+    .auth-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+    .auth-btn {
+      width: 100%;
+      background-color: #e81d42;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+    .auth-btn:hover {
+      background-color: #2a2a2a;
+    }
+    .switch-link {
+      margin-top: 15px;
+      color: #555;
+      font-size: 14px;
+    }
+    .switch-link a {
+      color: #e81d42;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .success-message {
+      display: none;
+      color: green;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <h2>Create Account</h2>
+      <form id="registerForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm Password" required>
+        <button type="submit" class="auth-btn">Register</button>
+      </form>
+      <div class="switch-link">
+        Already have an account? <a href="login.html">Login</a>
+      </div>
+      <div class="success-message" id="registerSuccess">Registration Successful! Redirecting...</div>
+    </div>
+  </div>
+
+  <script>
+    const regForm = document.getElementById('registerForm');
+    const regMsg = document.getElementById('registerSuccess');
+
+    regForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      regMsg.style.display = 'block';
+      setTimeout(() => {
+        window.location.href = 'login.html'; // Redirect after register
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
