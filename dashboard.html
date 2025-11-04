@@ -64,7 +64,6 @@
     .main-content {
       margin-left: 250px;
       padding: 40px;
-      transition: 0.3s;
     }
 
     .dashboard-header {
@@ -96,7 +95,7 @@
       background-color: #2a2a2a;
     }
 
-    /* Section cards */
+    /* Sections */
     .section {
       display: none;
       background: #fff;
@@ -132,10 +131,18 @@
       border-radius: 8px;
       text-transform: uppercase;
       cursor: pointer;
+      transition: all 0.3s;
     }
 
     .save-btn:hover {
       background-color: #2a2a2a;
+    }
+
+    .success-msg {
+      display: none;
+      color: green;
+      font-weight: bold;
+      margin-top: 15px;
     }
 
     /* Messages */
@@ -226,11 +233,12 @@
     <div class="section" id="profile">
       <h2>My Profile</h2>
       <div class="profile-info">
-        <input type="text" placeholder="Full Name" value="John Doe">
-        <input type="email" placeholder="Email" value="john@example.com">
-        <input type="text" placeholder="Phone" value="+91 9876543210">
-        <input type="password" placeholder="Change Password">
-        <button class="save-btn">Save Changes</button>
+        <input type="text" id="name" placeholder="Full Name" value="John Doe">
+        <input type="email" id="email" placeholder="Email" value="john@example.com">
+        <input type="text" id="phone" placeholder="Phone" value="+91 9876543210">
+        <input type="password" id="password" placeholder="Change Password">
+        <button class="save-btn" id="saveProfile">Save Changes</button>
+        <div class="success-msg" id="profileSaved">✅ Profile updated successfully!</div>
       </div>
     </div>
 
@@ -266,26 +274,41 @@
         <label>Show Email in Profile</label>
         <input type="checkbox" checked>
       </div>
-      <button class="save-btn">Save Preferences</button>
+      <button class="save-btn" id="saveSettings">Save Preferences</button>
+      <div class="success-msg" id="settingsSaved">✅ Preferences saved successfully!</div>
     </div>
   </div>
 
   <script>
-    // Sidebar section switching
+    // Sidebar Section Switching
     function showSection(sectionId) {
       document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
       document.getElementById(sectionId).classList.add('active');
-
       document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active'));
       event.target.closest('li').classList.add('active');
     }
 
-    // Logout redirect
-    document.getElementById('logoutBtn').addEventListener('click', function() {
+    // Logout
+    document.getElementById('logoutBtn').addEventListener('click', () => {
       alert('You have been logged out.');
       window.location.href = 'login.html';
+    });
+
+    // Profile Save Button
+    document.getElementById('saveProfile').addEventListener('click', () => {
+      const msg = document.getElementById('profileSaved');
+      msg.style.display = 'block';
+      setTimeout(() => { msg.style.display = 'none'; }, 2000);
+    });
+
+    // Settings Save Button
+    document.getElementById('saveSettings').addEventListener('click', () => {
+      const msg = document.getElementById('settingsSaved');
+      msg.style.display = 'block';
+      setTimeout(() => { msg.style.display = 'none'; }, 2000);
     });
   </script>
 
 </body>
 </html>
+
