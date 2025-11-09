@@ -215,7 +215,7 @@ button {
 .header_section {
     width: 100%;
     float: left;
-    background-image: url(../images/banner-bg.png);
+    background-image: url(../images/banner-bg.webp);
     height: auto;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -515,7 +515,7 @@ button {
 .improve_section_2 {
 	width: 100%;
 	float: left;
-	background-image: url(../images/img-3.png);
+	background-image: url(../images/img-3.webp);
 	height: auto;
 	background-size: 100%;
 	margin-top: 90px;
@@ -524,7 +524,7 @@ button {
 }
 .image_bg {
     width: 100%;
-    background-image: url(../images/img-4.png);
+    background-image: url(../images/img-4.webp);
     height: auto;
     padding: 212px 0px;
     background-size: 100%;
@@ -1221,3 +1221,160 @@ textarea#comment::placeholder {
 }
 
 
+/* Mobile Navigation Styles */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: #363636;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .navbar-nav .nav-link {
+        color: #ffffff;
+        padding: 12px 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Dropdown styles for mobile */
+    .dropdown-menu {
+        width: 100%;
+        background-color: #454545;
+        text-align: center;
+        border: none;
+        border-radius: 0;
+    }
+
+    .dropdown-item {
+        color: #ffffff;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    /* Search icon centering */
+    .nav-item img {
+        display: block;
+        margin: 10px auto;
+    }
+
+    /* Toggle button styling */
+    .navbar-toggler {
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Animation for dropdown */
+    .dropdown-menu {
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+
+
+
+
+/* Mobile Full-Screen Nav Overlay */
+@media (max-width: 991px) {
+  .navbar {
+    position: relative;
+    z-index: 1100;
+  }
+
+  .navbar-collapse {
+    position: fixed;
+    inset: 0;                /* top:0; right:0; bottom:0; left:0 */
+    width: 100vw;
+    height: 100vh;
+    background: #1f1f1f;     /* overlay bg */
+    padding: 80px 24px 24px; /* space for close button */
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity .35s ease, transform .35s ease;
+  }
+
+  .navbar-collapse.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .navbar-nav {
+    width: 100%;
+    gap: 8px;
+  }
+  .navbar-nav .nav-link {
+    width: 100%;
+    color: #fff;
+    font-size: 22px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  /* Close (X) button inside overlay */
+  .mobile-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    color: #fff;
+  }
+  .mobile-close:active { transform: scale(.96); }
+
+  /* Optional: blur the background header image slightly when menu is open */
+  body.menu-open .header_section { filter: blur(2px); }
+}
+.navbar-nav .nav-link i {
+   margin-left: 5px;
+   font-size: 14px;
+}
+.nav-link .fa-angle-down {
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.nav-item.dropdown.show .fa-angle-down {
+    transform: rotate(180deg);
+}
