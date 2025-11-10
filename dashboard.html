@@ -289,24 +289,45 @@
     }
 
     // Logout
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-      alert('You have been logged out.');
-      window.location.href = 'login.html';
-    });
-
-    // Profile Save Button
-    document.getElementById('saveProfile').addEventListener('click', () => {
-      const msg = document.getElementById('profileSaved');
-      msg.style.display = 'block';
-      setTimeout(() => { msg.style.display = 'none'; }, 2000);
-    });
-
-    // Settings Save Button
+    (function() {
+      const el = document.getElementById('logoutBtn');
+      if (el) {
+        el.addEventListener('click', () => {
+          alert('You have been logged out.');
+          window.location.href = 'login.html';
+        });
+      }
+    })();
     document.getElementById('saveSettings').addEventListener('click', () => {
-      const msg = document.getElementById('settingsSaved');
-      msg.style.display = 'block';
-      setTimeout(() => { msg.style.display = 'none'; }, 2000);
-    });
+  const msg = document.getElementById('settingsSaved');
+  msg.style.display = 'block';
+  setTimeout(() => { msg.style.display = 'none'; }, 2000);
+});
+
+
+
+
+   
+document.getElementById('saveProfile').addEventListener('click', () => {
+
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let phone = document.getElementById("phone").value.trim();
+
+  if(name === "" || email === "" || phone === "") {
+      alert("Please fill all fields before saving.");
+      return;
+  }
+
+  document.getElementById('profileSaved').style.display = 'block';
+
+  setTimeout(() => {
+      window.location.href = "404.html"; // Auto redirect
+  }, 1200);
+
+});
+
+
   </script>
 
 </body>
