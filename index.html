@@ -403,5 +403,39 @@
       <!-- javascript --> 
       <script src="js/owl.carousel.js"></script>
       <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script> 
+      <script>
+  (function () {
+    var nav = document.getElementById('navbarNav');
+    var toggler = document.querySelector('.navbar-toggler');
+
+    // When any nav link with a hash is clicked, scroll + collapse
+    document.querySelectorAll('#navbarNav .nav-link[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var targetId = this.getAttribute('href').slice(1);
+        var target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          // Optional: adjust for any fixed header height
+          var headerOffset = 0; // set e.g. 70 if header is fixed
+          var elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+          var offsetPosition = elementPosition - headerOffset;
+
+          window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+
+          // collapse the mobile menu
+          if (window.getComputedStyle(toggler).display !== 'none') {
+            $(nav).collapse('hide');        // uses Bootstrap's collapse
+            document.body.classList.remove('menu-open');
+          }
+        }
+      });
+    });
+
+    // Body class for optional blur when menu is open
+    $('#navbarNav').on('show.bs.collapse', function(){ document.body.classList.add('menu-open'); });
+    $('#navbarNav').on('hidden.bs.collapse', function(){ document.body.classList.remove('menu-open'); });
+  })();
+</script>
+
    </body>
 </html>
