@@ -1632,3 +1632,17 @@ textarea#comment::placeholder {
   display: block;
 }
  
+#sendMessageBtn {
+  width: 100%;
+  background-color: #e81d42;
+  color: #fff;
+  padding: 10px 0;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#sendMessageBtn:hover {
+  background-color: #363636;
+}

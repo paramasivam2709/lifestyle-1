@@ -397,3 +397,32 @@ document.querySelectorAll('.nav-item.dropdown').forEach(drop => {
   });
 });
 
+
+
+
+document.getElementById("sendMessageBtn").addEventListener("click", function() {
+
+  let name = document.querySelector('input[placeholder="Name"]').value.trim();
+  let email = document.querySelector('input[placeholder="Email"]').value.trim();
+  let phone = document.querySelector('input[placeholder="Phone Number"]').value.trim();
+  let message = document.querySelector('textarea[placeholder="Massage"]').value.trim();
+  let msgBox = document.getElementById("formMessage");
+
+  if (name === "" || email === "" || phone === "" || message === "") {
+    msgBox.innerHTML = "Please fill all fields.";
+    msgBox.style.color = "red";
+    return;
+  }
+
+  msgBox.innerHTML = "Message Sent Successfully!";
+  msgBox.style.color = "green";
+
+  setTimeout(() => {
+    window.location.href = "404.html"; // Redirect after showing success message
+  }, 1200);
+
+});
+
+
+
+
