@@ -16,6 +16,10 @@
 @import url(nice-select.css);
 
 /*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
+:focus {
+  outline: 2px solid #ffdd00 !important;
+  outline-offset: 4px;
+}
 
 * {
 	box-sizing: border-box !important;
@@ -1351,8 +1355,7 @@ textarea#comment::placeholder {
   }
   .mobile-close:active { transform: scale(.96); }
 
-  /* Optional: blur the background header image slightly when menu is open */
-  body.menu-open .header_section { filter: blur(2px); }
+ 
 }
 .navbar-nav .nav-link i {
    margin-left: 5px;
@@ -1505,3 +1508,127 @@ textarea#comment::placeholder {
         background-color: rgba(255,255,255,0.2);
     }
 }
+@media (max-width: 991px) {
+  .navbar-collapse.show {
+    background: #000; /* Solid black */
+    opacity: 1;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff !important;
+    padding: 14px 0;
+  }
+
+  /* Optional: add subtle divider lines */
+  .navbar-nav .nav-link {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+}
+/* Desktop + Mobile arrow styling */
+.dropdown-arrow {
+  cursor: pointer;
+  margin-left: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-arrow i {
+  font-size: 18px;
+  color: #ffffff; /* Make arrow visible */
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when dropdown is open */
+.nav-item.dropdown.show .dropdown-arrow i {
+  transform: rotate(180deg);
+}
+
+/* Improve arrow visibility in mobile full screen nav */
+@media (max-width: 991px) {
+  .dropdown-arrow {
+    padding: 8px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.1);
+    margin-left: 10px;
+  }
+
+  .dropdown-arrow i {
+    color: #fff !important; /* force visible */
+  }
+
+  .dropdown-menu {
+    width: 100%;
+    text-align: center;
+    background: #333;
+  }
+}
+
+
+
+/* Align HOME and arrow in same line */
+.nav-item.dropdown > .nav-link,
+.nav-item.dropdown > .dropdown-arrow {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+/* IMPORTANT FIX — Do NOT flex the entire dropdown item */
+.nav-item.dropdown {
+  display: block; /* revert */
+}
+
+/* Arrow next to Home text */
+.dropdown-arrow {
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+/* Rotate arrow when open */
+.nav-item.dropdown.show .dropdown-arrow i {
+  transform: rotate(180deg);
+  transition: 0.3s;
+}
+
+/* Dropdown menu alignment */
+.dropdown-menu {
+  text-align: left;
+}
+/* Put HOME and arrow in one row */
+
+ .home-row {
+  display: flex;
+  align-items: center;
+}
+
+/* Arrow button */
+.dropdown-arrow {
+  background: none;
+  border: none;
+  color: #fff;
+  margin-left: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+/* Rotate arrow when open */
+.nav-item.dropdown.show .dropdown-arrow i {
+  transform: rotate(180deg);
+  transition: 0.3s ease;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  display: none;
+}
+
+.nav-item.dropdown.show .dropdown-menu {
+  display: block;
+}
+ 

@@ -368,3 +368,32 @@ $(function () {
 
 
 });
+
+
+
+
+document.querySelectorAll('.nav-item.dropdown').forEach(drop => {
+  const link = drop.querySelector('.nav-link');
+  const arrow = drop.querySelector('.dropdown-arrow');
+  const menu = drop.querySelector('.dropdown-menu');
+
+  // When tab focuses Home link, enable Enter to open dropdown
+  link.setAttribute('tabindex', '0');
+  arrow.setAttribute('tabindex', '0');
+
+  function toggleMenu() {
+    drop.classList.toggle('show');
+    menu.classList.toggle('show');
+  }
+
+  // Open dropdown with Enter or Space on arrow or link
+  [link, arrow].forEach(el => {
+    el.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+  });
+});
+
