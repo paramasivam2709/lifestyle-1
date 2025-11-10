@@ -215,7 +215,7 @@ button {
 .header_section {
     width: 100%;
     float: left;
-    background-image: url(../images/banner-bg.png);
+    background-image: url(../images/banner-bg.webp);
     height: auto;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -515,7 +515,7 @@ button {
 .improve_section_2 {
 	width: 100%;
 	float: left;
-	background-image: url(../images/img-3.png);
+	background-image: url(../images/img-3.webp);
 	height: auto;
 	background-size: 100%;
 	margin-top: 90px;
@@ -524,7 +524,7 @@ button {
 }
 .image_bg {
     width: 100%;
-    background-image: url(../images/img-4.png);
+    background-image: url(../images/img-4.webp);
     height: auto;
     padding: 212px 0px;
     background-size: 100%;
@@ -1039,4 +1039,469 @@ textarea#comment::placeholder {
 }
 .margin_bottom90{
 	margin-bottom: 90px;
+}
+
+/* Global fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header animation */
+.header_section { animation: fadeIn 1s ease-in-out; }
+
+
+
+
+/* Banner title typing animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.banner_taital {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(30, end), blink 0.6s step-end infinite;
+}
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: #000; }
+}
+
+/* About section card hover */
+.about_box, .about_box_2 {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.about_box:hover, .about_box_2:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Gallery hover zoom */
+.image {
+  transition: transform 0.4s ease;
+}
+.ram:hover .image {
+  transform: scale(1.1);
+}
+
+/* Scroll animations */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in-section.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Button hover effect */
+.read_bt a, .video_bt a, .send_bt a {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.read_bt a:hover, .video_bt a:hover, .send_bt a:hover {
+  transform: scale(1.05);
+}
+
+/* Testimonial fade */
+.testimonial_section { animation: fadeIn 2s ease-in-out; }
+
+/* Footer animation */
+.footer_section { animation: fadeIn 2s ease-in-out 0.5s both; }
+/* Scroll reveal animations (using AOS-like custom classes) */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Banner text animation */
+.banner_taital, .banner_text { animation: fadeIn 1.2s ease-in-out; }
+
+/* About section cards hover */
+.about_box, .about_box_2 {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+.about_box:hover, .about_box_2:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Gallery hover zoom */
+.ram .image { transition: transform 0.5s ease; }
+.ram:hover .image { transform: scale(1.1); }
+
+/* Testimonial fade/slide */
+.client_main { animation: fadeIn 1.5s ease; }
+.client_text_main { animation: fadeIn 2s ease; }
+
+/* Contact form fade-in */
+.contact_section { animation: fadeIn 1.3s ease-in; }
+
+/* Footer fade-up */
+.footer_section { animation: fadeIn 1.3s ease-in-out; }
+
+/* Advanced Animations Continued */
+
+/* Banner number animation */
+@keyframes slideNumber {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.number_text { animation: slideNumber 1s ease-in-out; }
+
+/* Gallery hover zoom effect */
+.ram .image {
+  transition: transform 0.6s ease;
+}
+.ram:hover .image {
+  transform: scale(1.1);
+}
+
+/* Button ripple effect */
+.read_bt a, .video_bt a, .send_bt a, .subscribe_bt a {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.read_bt a::after, .video_bt a::after, .send_bt a::after, .subscribe_bt a::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  opacity: 0;
+}
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Card hover lift */
+.about_box, .about_box_2 {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.about_box:hover, .about_box_2:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Testimonial slide-in */
+.client_text_main {
+  animation: fadeIn 1.2s ease-in-out;
+}
+.client_img img {
+  animation: fadeInLeft 1.2s ease-in-out;
+}
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+
+/* Mobile Navigation Styles */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: #363636;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+    }
+
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .navbar-nav .nav-link {
+        color: #ffffff;
+        padding: 12px 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Dropdown styles for mobile */
+    .dropdown-menu {
+        width: 100%;
+        background-color: #454545;
+        text-align: center;
+        border: none;
+        border-radius: 0;
+    }
+
+    .dropdown-item {
+        color: #ffffff;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    /* Search icon centering */
+    .nav-item img {
+        display: block;
+        margin: 10px auto;
+    }
+
+    /* Toggle button styling */
+    .navbar-toggler {
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Animation for dropdown */
+    .dropdown-menu {
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+
+
+
+
+/* Mobile Full-Screen Nav Overlay */
+@media (max-width: 991px) {
+  .navbar {
+    position: relative;
+    z-index: 1100;
+  }
+
+  .navbar-collapse {
+    position: fixed;
+    inset: 0;                /* top:0; right:0; bottom:0; left:0 */
+    width: 100vw;
+    height: 100vh;
+    background: #1f1f1f;     /* overlay bg */
+    padding: 80px 24px 24px; /* space for close button */
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity .35s ease, transform .35s ease;
+  }
+
+  .navbar-collapse.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .navbar-nav {
+    width: 100%;
+    gap: 8px;
+  }
+  .navbar-nav .nav-link {
+    width: 100%;
+    color: #fff;
+    font-size: 22px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  /* Close (X) button inside overlay */
+  .mobile-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    color: #fff;
+  }
+  .mobile-close:active { transform: scale(.96); }
+
+  /* Optional: blur the background header image slightly when menu is open */
+  body.menu-open .header_section { filter: blur(2px); }
+}
+.navbar-nav .nav-link i {
+   margin-left: 5px;
+   font-size: 14px;
+}
+.nav-link .fa-angle-down {
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.nav-item.dropdown.show .fa-angle-down {
+    transform: rotate(180deg);
+}
+
+/* Add these styles at the end of your existing CSS */
+
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .nav-item.dropdown > .nav-link {
+        pointer-events: auto;
+    }
+    
+    .dropdown-toggle::after {
+        display: inline-block;
+        margin-left: 5px;
+        vertical-align: middle;
+        content: "";
+        border-top: 4px solid;
+        border-right: 4px solid transparent;
+        border-bottom: 0;
+        border-left: 4px solid transparent;
+    }
+}
+
+/* Dropdown arrow alignment fix */
+.navbar-nav .dropdown-arrow {
+    margin-left: 6px;
+    font-size: 14px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when dropdown open */
+.nav-item.dropdown.show .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Arrow style */
+.dropdown-toggle-arrow {
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 5px;
+  color: #fff;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow on open */
+.nav-item.dropdown.show .dropdown-toggle-arrow i {
+  transform: rotate(180deg);
+}
+
+/* Align dropdown correctly */
+.nav-item.dropdown {
+  position: relative;
+}
+/* Add these styles at the end of your existing CSS */
+
+.nav-link {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.fa-angle-down {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.show .fa-angle-down {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 991px) {
+    .nav-link {
+        justify-content: center;
+        padding: 12px 0;
+    }
+    
+    .nav-link .fa-angle-down {
+        margin-left: 5px;
+    }
+}
+/* Add these styles at the end of your existing CSS */
+
+.nav-link-wrapper {
+    width: 100%;
+    cursor: pointer;
+}
+
+.nav-link-wrapper .nav-link {
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.dropdown-toggle-icon {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.dropdown-toggle-icon i {
+    transition: transform 0.3s ease;
+}
+
+.show .dropdown-toggle-icon i {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 991px) {
+    .nav-link-wrapper {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .nav-link {
+        border-bottom: none !important;
+        padding: 0 !important;
+    }
+    
+    .dropdown-menu {
+        width: 100%;
+        text-align: center;
+        margin-top: 0;
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .dropdown-item {
+        color: #fff;
+        padding: 10px 0;
+    }
+    
+    .dropdown-item:hover {
+        background-color: rgba(255,255,255,0.2);
+    }
 }
