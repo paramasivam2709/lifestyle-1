@@ -426,3 +426,67 @@ document.getElementById("sendMessageBtn").addEventListener("click", function() {
 
 
 
+
+document.getElementById("subscribeBtn").addEventListener("click", function(){
+
+    let name = document.getElementById("subName").value.trim();
+    let email = document.getElementById("subEmail").value.trim();
+    let msg = document.getElementById("subError");
+
+    if(name === "" || email === ""){
+        msg.style.display = "block"; // show error message
+    } else {
+        msg.style.display = "none"; // hide error
+        window.location.href = "404.html"; // redirect when filled
+    }
+
+});
+
+
+// ...existing code...
+
+/* Mobile Menu Close on Click
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+document.addEventListener('DOMContentLoaded', function() {
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+    // Close menu when clicking on nav links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (navbarCollapse.classList.contains('show')) {
+                navbarToggler.click();
+            }
+        });
+    });
+
+    // Close menu when clicking on dropdown items
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function() {
+            if (navbarCollapse.classList.contains('show')) {
+                navbarToggler.click();
+            }
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const isClickInsideNav = document.querySelector('.navbar').contains(event.target);
+        if (!isClickInsideNav && navbarCollapse.classList.contains('show')) {
+            navbarToggler.click();
+        }
+    });
+});
+
+document.addEventListener("click", function(e) {
+  const nav = document.getElementById("navbarNav");
+  const toggler = document.querySelector(".navbar-toggler");
+
+  if (nav.classList.contains("show") && !nav.contains(e.target) && e.target !== toggler) {
+    toggler.click();
+  }
+});
+
