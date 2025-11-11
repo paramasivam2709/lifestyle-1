@@ -1646,3 +1646,16 @@ textarea#comment::placeholder {
 #sendMessageBtn:hover {
   background-color: #363636;
 }
+/* Hide close button on laptop & desktop */
+@media (min-width: 992px) {
+  .mobile-close {
+    display: none !important;
+  }
+}
+
+/* Show close button only on mobile */
+@media (max-width: 991px) {
+  .mobile-close {
+    display: block !important;
+  }
+}
